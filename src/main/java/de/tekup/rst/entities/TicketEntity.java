@@ -11,8 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import lombok.Data;
+
 @Entity
-public class Ticket {
+@Data
+public class TicketEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer numero;
