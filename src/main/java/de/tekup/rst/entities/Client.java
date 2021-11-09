@@ -1,6 +1,7 @@
 package de.tekup.rst.entities;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import javax.persistence.*;
 
@@ -23,5 +24,12 @@ public class Client {
 	
 	private String telephone;
 	
+	public String getNomComplet() {
+		return nom+" "+prenom;
+	}
 
+	public int getAge() {
+		return (int) ChronoUnit.YEARS.between(dateDeNaissance, 
+				LocalDate.now());
+	}
 }
