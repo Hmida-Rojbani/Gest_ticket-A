@@ -2,6 +2,8 @@ package de.tekup.rst.controllers;
 
 
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +19,7 @@ public class ClientCtrl {
 	
 	private ClientService clientService;
 	@PostMapping("/api/clients")
-	public ClientResDTO addClient(@RequestBody ClientReqDTO client) {
+	public ClientResDTO addClient(@Valid @RequestBody  ClientReqDTO client) {
 		return clientService.saveToDB(client);
 	}
 

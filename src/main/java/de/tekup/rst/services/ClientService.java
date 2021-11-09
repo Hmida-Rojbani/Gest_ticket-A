@@ -1,7 +1,5 @@
 package de.tekup.rst.services;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
