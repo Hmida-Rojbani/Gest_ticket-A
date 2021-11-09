@@ -19,7 +19,7 @@ public class Client {
 	
 	private LocalDate dateDeNaissance;
 	
-	private String courrier;
+	private String courriel;
 	
 	private String telephone;
 	
