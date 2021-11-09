@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Data
-public class MetEntity {
+public abstract class MetEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -21,4 +21,5 @@ public class MetEntity {
 	private String name;
 	
 	private double prix;
+	
 }
