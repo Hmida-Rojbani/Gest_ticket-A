@@ -1,5 +1,7 @@
 package de.tekup.rst.services;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,11 @@ public class MetService {
 		entity = metRepository.save(entity);
 		dto.setId(entity.getId());
 		return dto;
+	}
+
+	public List<MetDTO> getAllMets() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
