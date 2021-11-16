@@ -1,9 +1,10 @@
 package de.tekup.rst.services;
 
-import de.tekup.rst.entities.TicketEntity;
+import de.tekup.rst.dto.models.TicketDTO;
 
 public interface TicketService {
 	
-	TicketEntity create(TicketEntity ticketEntity);
+
+	double create(TicketDTO ticket);
 
 }
