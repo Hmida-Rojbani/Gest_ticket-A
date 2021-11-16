@@ -1,6 +1,7 @@
 package de.tekup.rst.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,14 @@ public class MetService {
 	}
 
 	public List<MetDTO> getAllMets() {
-		// TODO Auto-generated method stub
-		return null;
+		ModelMapper mapper = new ModelMapper();
+		return metRepository.findAll().stream()
+				.map(ent-> {
+					MetDTO met = mapper.map(ent, MetDTO.class);
+					met.setType(ent.getClass().getSimpleName());
+					return met;
+				})
+				.collect(Collectors.toList());
 	}
 	
 
