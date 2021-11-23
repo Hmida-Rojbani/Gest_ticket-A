@@ -12,9 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString(exclude = {"table","client","mets"})
 public class TicketEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

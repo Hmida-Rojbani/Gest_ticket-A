@@ -2,6 +2,7 @@ package de.tekup.rst.entities;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "client_entity")
 public class Client {
 	
 	@Id
@@ -23,6 +25,9 @@ public class Client {
 	private String courriel;
 	
 	private String telephone;
+	
+	@OneToMany(mappedBy = "client")
+	private List<TicketEntity> tickets;
 	
 	public String getNomComplet() {
 		return nom+" "+prenom;

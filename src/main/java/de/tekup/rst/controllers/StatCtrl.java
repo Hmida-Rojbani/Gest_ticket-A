@@ -24,4 +24,9 @@ public class StatCtrl {
 		LocalDate dateB = LocalDate.parse(dateFin);
 		return statService.platAcheter(dateA,dateB);
 	}
+	
+	@GetMapping("/day/client/{id}")
+	public String jourResClient(@PathVariable int id) {
+		return statService.jourPlusReserveParClient(id);
+	}
 }
