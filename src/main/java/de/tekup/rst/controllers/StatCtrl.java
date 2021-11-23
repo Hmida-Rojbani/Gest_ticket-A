@@ -1,6 +1,7 @@
 package de.tekup.rst.controllers;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,5 +29,18 @@ public class StatCtrl {
 	@GetMapping("/day/client/{id}")
 	public String jourResClient(@PathVariable int id) {
 		return statService.jourPlusReserveParClient(id);
+	}
+	
+	@GetMapping("/revenue")
+	public Map<String, Double> revenue() {
+		return statService.revenue();
+	}
+	
+	@GetMapping("/revenue/{deb}/{fin}")
+	public double revenue(@PathVariable String deb,
+			@PathVariable String fin) {
+		LocalDate dateDeb = LocalDate.parse(deb);
+		LocalDate dateFin = LocalDate.parse(fin);
+		return statService.revenue(dateDeb, dateFin);
 	}
 }
