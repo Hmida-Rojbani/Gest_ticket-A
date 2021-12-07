@@ -26,4 +26,12 @@ public class ClientReqDTO {
 	private String courriel;
 	
 	private String telephone;
+	
+	public String getDate() {
+		return this.dateDeNaissance==null ? null : this.dateDeNaissance.toString();
+	}
+	
+	public void setDate(String date) {
+		this.dateDeNaissance = LocalDate.parse(date);
+	}
 }
