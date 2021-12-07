@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head th:replace="fragments/site-components :: head ">
+
+</head>
+<body>
+	<div th:replace="fragments/site-components :: nav"></div>
+	<div class="container">
+		<h1 class="text-center">Add client</h1>
+
+		<div class="row">
+			<div class="offset-md-3 col-md-6">
+				<form th:object="${ticket}" method="post" action="/create/ticket">
+					<div class="mb-3">
+						<label for="nom" class="form-label">Client : 
+							</label> 
+							<select th:field="*{clientId}" class="form-select" aria-label="Default select example">
+							  <option th:each="client : ${listClient}" th:value="${client.id}" th:text="${client.nomComplet}">Option</option>
+
+							</select>
+							
+
+					</div>
+				
+					<div class="d-grid gap-2">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div th:replace="fragments/site-components :: jsScript"></div>
+</body>
+</html>
