@@ -6,55 +6,32 @@
 <body>
 	<div th:replace="fragments/site-components :: nav"></div>
 	<div class="container">
-		<h1 class="text-center">Add client</h1>
+		<h1 class="text-center">List des client</h1>
 
 		<div class="row">
 			<div class="offset-md-3 col-md-6">
-				<form th:object="${client}" method="post" action="/clients/add">
-					<div class="mb-3">
-						<label for="nom" class="form-label">Nom
-							</label> <input th:field="*{nom}" type="text" class="form-control"
-							id="nom">
-							<div class="form-text text-danger" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">We'll never share your 
-						email with anyone else.</div> 
+				<div class="table-responsive">
+  <table class="table table-hover table-primary border-primary">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom & Prénom</th>
+        <th scope="col">Age</th>
+        <th scope="col">E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="client : ${listClient}">
+        <th scope="row" th:text="${client.id}">1</th>
+        <td th:text="${client.nomComplet}">Sit</td>
+        <td th:text="${client.age}">Amet</td>
+        <td th:text="${client.courriel}">Consectetur</td>
+      </tr>
+     
+    </tbody>
 
-					</div>
-					<div class="mb-3">
-						<label for="prenom" class="form-label">Prenom
-							</label> <input th:field="*{prenom}" type="text" class="form-control"
-							id="prenom">
-						<div class="form-text text-danger" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">We'll never share your 
-						email with anyone else.</div> 
-					</div>
-					<div class="mb-3">
-						<label for="date" class="form-label">Date de Naissance
-							</label> <input th:field="*{date}" type="date" class="form-control"
-							id="date">
-							
-							<div class="form-text text-danger" th:if="${#fields.hasErrors('dateDeNaissance')}" th:errors="*{dateDeNaissance}">We'll never share your 
-						email with anyone else.</div> 
-
-					</div>
-					
-					<div class="mb-3">
-						<label for="exampleInputEmail1" class="form-label">Email
-							</label> <input th:field="*{courriel}" type="email" class="form-control"
-							id="exampleInputEmail1" aria-describedby="emailHelp">
-					<div id="emailHelp" class="form-text text-danger" th:if="${#fields.hasErrors('courriel')}" th:errors="*{courriel}">We'll never share your 
-						email with anyone else.</div> 
-		
-					</div>
-					
-					<div class="mb-3">
-						<label for="telephone" class="form-label">Phone
-							</label> <input th:field="*{telephone}" type="text" class="form-control"
-							id="telephone">
-
-					</div>
-					<div class="d-grid gap-2">
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</div>
-				</form>
+  </table>
+</div>
 			</div>
 		</div>
 	</div>

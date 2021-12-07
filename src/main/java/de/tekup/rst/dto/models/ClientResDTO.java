@@ -8,5 +8,6 @@ public class ClientResDTO {
 	private Integer id;
 	private String nomComplet;
 	private int age;
+	private String courriel;
 
 }

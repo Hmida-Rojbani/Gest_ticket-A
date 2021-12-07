@@ -31,6 +31,12 @@ public class ClientCtrl {
 			return "clients/add-client";
 		}
 		clientService.saveToDB(client);
-		return "redirect:/";
+		return "redirect:/clients/display";
+	}
+	
+	@GetMapping("/clients/display")
+	public String getClientDisplay(Model model) {
+		model.addAttribute("listClient", clientService.getAllClients());
+		return "clients/show-client";
 	}
 }

@@ -1,6 +1,9 @@
 package de.tekup.rst.services;
 
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +18,10 @@ import lombok.AllArgsConstructor;
 public class ClientService {
 	
 	private ClientRepository clientRepository;
+	private ModelMapper mapper;
 	
 	public ClientResDTO saveToDB(ClientReqDTO clientDto) {
-		ModelMapper mapper = new ModelMapper();
+		 
 		Client client = mapper.map(clientDto, Client.class);
 //		Client client = new Client();
 //		client.setNom(clientDto.getNom());
@@ -34,6 +38,13 @@ public class ClientService {
 //		clientResDTO.setAge((int)ChronoUnit.YEARS.between(client.getDateDeNaissance(),
 //				LocalDate.now()));
 		return clientResDTO;
+	}
+
+	public List<ClientResDTO> getAllClients() {
+		
+		return clientRepository.findAll().stream()
+					.map(ce-> mapper.map(ce, ClientResDTO.class))
+					.collect(Collectors.toList());
 	}
 
 }
